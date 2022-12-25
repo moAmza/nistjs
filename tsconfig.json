@@ -6,5 +6,6 @@
     "outDir": "./dist",
     "strict": true
   },
-  "include": ["src"]
+  "include": ["src", "builder"]
+  // "exclude": ["builder/src"]
 }

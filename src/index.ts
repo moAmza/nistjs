@@ -1,8 +1,6 @@
-export type Hello = 'hello';
-export const sayHello = (): Hello => {
-  return 'hello';
-};
+// import { configServices } from './configs/config-services';
 
-const sayGoodby = () => {
-  return 'bye';
-};
+import { initLazyServices } from "../builder/src/inits/init-services";
+import { configService } from "./configs/service-config";
+
+configService(initLazyServices)("repos").auth.register();
