@@ -1,19 +1,20 @@
 {
   "name": "nistjs",
-  "version": "1.0.2",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "init": "cp -R ./builder/src",
-    "build": "rm -rf ./dist && ./node_modules/.bin/tsc && rm -rf ./dist/builder",
+    "build": "rm -rf ./dist && ./node_modules/.bin/tsc && rm -rf ./dist/builder && cp -R ./builder ./dist/builder && cp -R cli dist/cli",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
+    "test": "",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "do": "node ./cli/build.js"
   },
   "author": "moamza",
   "license": "ISC",
@@ -26,7 +27,9 @@
     "typescript": "^4.9.4"
   },
   "files": [
-    "dist/**/*"
+    "builder/**/*"
   ],
-  "dependencies": {}
+  "type": "module",
+  "dependencies": {},
+  "bin": "./cli/build.js"
 }
